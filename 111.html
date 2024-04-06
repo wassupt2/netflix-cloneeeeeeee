@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=viewport, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/signin/signup.css">
+</head>
+<body>
+  <div class="form-wrapper">
+    <h2>Sign Up</h2>
+    <form id="authenticationForm">
+        <div class="form-control">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+
+        </div>
+        <div class="form-control">
+          <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+
+        </div>
+        <button onclick="" id="signUp">Sign Up</button>
+        <div class="form-help"> 
+            <div class="remember-me">
+                <input type="checkbox" id="remember-me">
+                <label for="remember-me">Remember me</label>
+            </div>
+            <a href="#">Need help?</a>
+        </div>
+    </form>
+    <p>New to Netflix? <a href="#">Sign In now</a></p>
+    <small>
+        This page is protected by Google reCAPTCHA to ensure you're not a bot. 
+        <a href="#">Learn more.</a>
+    </small>
+</div>
+    <script type="module" src="/signin/signup.js"></script>
+</body>
+<script>
+  document.getElementById("signUp").addEventListener("click", function(event) {
+            var form = document.getElementById("authenticationForm");
+            var inputs = form.querySelectorAll("input[type=email], input[type=password]");
+            let allFilled = true;
+            
+            for (var input of inputs) {
+                if (input.value.trim() === "") {
+                    allFilled = false;
+                    break;
+                }
+            }
+            
+            if (allFilled) {
+                // Redirect to the desired page if all fields are filled.
+                window.location.href = "/main/index.html";
+            } else {
+                alert("All fields must be filled out.");
+            }
+        });
+</script>
+</html>
